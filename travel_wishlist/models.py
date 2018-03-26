@@ -7,10 +7,9 @@ class Place(models.Model):
 	
 	name = models.CharField(max_length=200)
 	visited = models.BooleanField(default=False)
-	date_visited = models.DateTimeField(max_length=200)
-    notes = models.CharField(max_length=200)
-
+	date_visited = models.DateTimeField(blank=True, null=True)
+    notes = models.CharField(blank=True, null=True)
 
     def __str__(self):
-        return place = {self.name}, visited =  {self.visited}, 
-               date_visited = {self.date_visited}, notes = {self.notes}
+        visit_time = timezone.visitedtime(self.date_visited, "%d %b %y")
+        return '%s visited? %s %s %s' % (self.name, self.visited, visit_time, self.notes)
