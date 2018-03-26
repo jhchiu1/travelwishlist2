@@ -1,0 +1,18 @@
+{% extends 'travel_wishlist_v2/base.html' %}
+{% block content %}
+
+
+        {% if visited.visited %}
+                <h2>{{ visited.name }} | Visited</h2>
+                <div>Visited on: {{ visited.date_visited }}</div>
+                <div>Notes: {{ visited.notes }}</div>
+        {% else %}
+            <form method="POST" class="post-form">{% csrf_token %}
+                <h2>{{ visited.name }} | Not Visited</h2>
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        {% endif %}
+
+
+{% endblock %}
