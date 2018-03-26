@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Place
 from .forms import NewPlaceForm
 
-
+#
 # Fetch data from db and display it in the view
 # Views handle requests to home page
 def place_list(request):
